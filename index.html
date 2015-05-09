@@ -1,10 +1,11 @@
 <!DOCTYPE HTML>
 <html ng-app="chatroom">
   <head>
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
+  
   <body ng-controller="mainCtrl">
     <div class="main-container">
       <h1> DevMountain Chat Room </h1>
@@ -14,9 +15,12 @@
       <div class="messages-container">
         <p ng-repeat="message in messages"> {{message.text}} </p>
       </div>
-    </div>
+    </div> <!-- end of main-container -->
+
+        <!-- SCRIPTS -->
     <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.19.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+        <!-- JS SCRIPTS -->
     <script src="js/app.js"></script>
     <script src="js/mainCtrl.js"></script>
     <script src="js/parseService.js"></script>
