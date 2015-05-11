@@ -5,16 +5,24 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
-  
+
   <body ng-controller="mainCtrl">
     <div class="main-container">
       <h1> DevMountain Chat Room </h1>
       <form ng-submit="postData()">
-        <input class="form-control text-box" type="text" ng-model="message" placeholder="Message">
+        <input class="form-control text-box" type="text" ng-model="message" placeholder="Message...">
+        <input class="form-control text-box" type="text" ng-model="searchText.text" placeholder="Search term...">
       </form>
-      <div class="messages-container">
-        <p ng-repeat="message in messages"> {{message.text}} </p>
-      </div>
+      <div class="messages-container panel panel-default">
+        <!-- <p ng-repeat="message in messages"> {{message.text}} </p> -->
+        <div class="panel-heading"></div>
+        <ul class="list-group panel-body">
+          <li class="list-group-item" ng-repeat='message in messages | filter:searchText | orderBy:"-createdAt"'>
+            <span class="badge"> {{message.createdAt | date:'short'}} </span>
+            {{message.text}}
+          </li>
+        </ul>
+      </div>  <!-- end of messages-container -->
     </div> <!-- end of main-container -->
 
         <!-- SCRIPTS -->
